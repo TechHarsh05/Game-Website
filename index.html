@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
+
 <body>
-    <nav id="navigation">
-        <div id="logo"><img src="/assets/profile.png" alt="logo"></div>
-        <div id="Home">
+    <nav>
+        <div id="logo"><img src="/assets/profile.png" alt="logo">
+            <div><h1>HAS@Gaming</h1></div>
+        </div>
+        <div>
             <ul><a href="#Home">Home</a></ul>
             <ul><a href="#About">About</a></ul>
             <ul><a href="#Games">Games</a></ul>
             <ul><a href="#Contect">Contect</a></ul>
         </div>
     </nav>
-    <section id="About">
-        About
+    <section id="Home">
+        
     </section>
+    <section id="About">
+        <div data-aos="fade-left">
+            <pre>
+            Hey, My Name is Harsh.
+                I'm a Student and a Programmer,
+                    I have made a game for you.
+                        Let's Play and Enjoy
+        </pre>
+        </div>
+        <div data-aos="fade-right">
+            <pre>
+
+            "! Wait"<br>
+                Dont Forget To Give Feedback<br>
+                    And tell me do you Like The Game<br>
+        </pre>
+        </div>
+    </section>
+
     <section id="Games">
+        <img src="/assets/rpc.jpg" alt="">
         <button>Rock</button>
         <button>Paper</button>
         <button>Scissor</button>
@@ -33,4 +58,12 @@
         </form>
     </section>
 </body>
+<footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="script.js"></script>
+</footer>
+
 </html>
