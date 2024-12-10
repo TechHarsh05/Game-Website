@@ -135,20 +135,34 @@ a{
 #Games > div{
     height: 40%;
     width: 60%;
-    background-color: #fff;
+    background-color: #282A35;
     border-radius: 15px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-#Games > div > div{
+
+#Games > div > div > div{
     margin: auto;   
-    width: 50%;
+    width: 90%;
     background-color: rgb(75, 154, 228);
     border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
     margin-top: 3%;
     font-size: 3vw;
 }
 
+#Games >div > div > span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 3%;
+}
 button{
     margin: 50% 1;
     padding: 0 2% ;
@@ -158,5 +172,6 @@ button{
     margin-top: 3%;
     border-radius: 10px;
     background-color: #1ecb52;
+    cursor: pointer;
 }   
 
