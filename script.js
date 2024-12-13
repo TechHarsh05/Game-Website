@@ -1,5 +1,10 @@
-// Needed Eelements 
+// Used audio 
+let waudio = new Audio('./assets/win.mp3')
+let laudio = new Audio('./assets/lose.mp3')
+let taudio = new Audio('./assets/tie.mp3')
+let saudio = new Audio('./assets/start.mp3')
 
+// Needed Eelements 
 let about = document.getElementById('About');
 let game = document.getElementById('Games')
 let div1 = document.createElement('div')
@@ -60,7 +65,7 @@ let Tie = 0;
 rock.addEventListener("click", () => updateResult("rock"));
 paper.addEventListener("click", () => updateResult("paper"));
 scissor.addEventListener("click", () => updateResult("scissor"));
-start.addEventListener('click',() => setTimeout(overlay.remove(),3000))
+start.addEventListener('click',() => setTimeout(overlay.remove(), saudio.play(),3000))
 
 
 function updateResult(choice) {
@@ -103,9 +108,9 @@ function replace() {
     if (count>=3) {
         count = 1;
         // let div3 = document.createElement('div')
-        if(Won>Lose>Tie || Won>Tie>Lose){overlaymsg.textContent = `Match ${"Won"}`}
-        else if(Lose>Tie>Won || Lose>Won>Tie){overlaymsg.textContent = `Match ${"Lose"}`}
-        else if(Tie>Won>Lose || Tie>Lose>Won){overlaymsg.textContent = `Match ${"Tie"}`}
+        if(Won>Lose>Tie || Won>Tie>Lose){overlaymsg.textContent = `Match ${"Won"}`; waudio.play();}
+        else if(Lose>Tie>Won || Lose>Won>Tie){overlaymsg.textContent = `Match ${"Lose"}`; laudio.play();}
+        else if(Tie>Won>Lose || Tie>Lose>Won){overlaymsg.textContent = `Match ${"Tie"}`; taudio.play();}
         else{overlaymsg.textContent = "Match Tie"}
         overlay = document.createElement('div')
         overbox = document.createElement('div')
@@ -122,6 +127,7 @@ function replace() {
         reset.addEventListener('click',()=>{
             overlay.remove()
             start.remove()
+            saudio.play('./assets/tie.mp3');
             Won = 0;
             Lose = 0;
             Tie = 0;
