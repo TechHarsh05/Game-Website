@@ -66,10 +66,10 @@ let Lose = 0;
 let Tie = 0;
 
 // Elements that to be click
-rock.addEventListener("click", () => updateResult("rock"), saudio.play());
-paper.addEventListener("click", () => updateResult("paper"), saudio.play());
-scissor.addEventListener("click", () => updateResult("scissor"), saudio.play());
-start.addEventListener('click',() => setTimeout(overlay.remove(), sound.style.cssText = "opacity:1", bgaudio.play(), saudio.play(),3000))
+rock.addEventListener("click", () => {saudio.play();updateResult("rock");});
+paper.addEventListener("click", () => {updateResult("paper"); saudio.play();});
+scissor.addEventListener("click", () => {updateResult("scissor"); saudio.play();});
+start.addEventListener('click',() => setTimeout(overlay.remove(), sound.style.cssText = "opacity:1", bgaudio.play(), 3000))
 
 
 function updateResult(choice) {
@@ -131,7 +131,6 @@ function replace() {
         reset.addEventListener('click',()=>{
             overlay.remove()
             start.remove()
-            saudio.play('./assets/tie.mp3');
             Won = 0; Lose = 0; Tie = 0;
         })
     }else{

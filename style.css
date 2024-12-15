@@ -218,9 +218,9 @@ a:hover{
 }
 
 #Games > #overlay > #overbox > button{
-    font-size: 3em;
-    height: 7vw;
-    width: 20vw;
+    font-size: 3vw;
+    height: 6vw;
+    width: 30vw;
     cursor: pointer;
     background-color: gold;
     border: 2px solid black;
@@ -237,7 +237,7 @@ a:hover{
     margin-bottom: 5%;
     width: 100%;
     color: gold;
-    font-size: 6em;
+    font-size: 8vw;
     font-weight: bolder;
 }
 
