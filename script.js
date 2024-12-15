@@ -2,7 +2,9 @@
 let waudio = new Audio('./assets/win.mp3')
 let laudio = new Audio('./assets/lose.mp3')
 let taudio = new Audio('./assets/tie.mp3')
-let saudio = new Audio('./assets/start.mp3')
+let bgaudio = new Audio('./assets/ground-music.mp3')
+let saudio = new Audio('./assets/button.mp3')
+let sound = document.createElement('img');
 
 // Needed Eelements 
 let about = document.getElementById('About');
@@ -29,7 +31,7 @@ let seconddiv = allChildren[3]
 
 // add Element on location
 
-game.append(overlay, div1)
+game.append(overlay, div1, sound)
 div1.append(div2)
 div2.append(result, buttons)
 buttons.append(rock, paper, scissor)
@@ -44,11 +46,13 @@ overbox.id = "overbox"
 overlaymsg.id = "msg";
 overlay.id = "overlay"
 start.id = "start"
+sound.id = 'music'
 
 rock.innerHTML = "Rock"
 paper.innerHTML = "Paper"
 scissor.innerHTML = "Scissor"
 start.textContent = "Start"
+sound.src = "./assets/volume.png"
 
 
 // Game Code Started
@@ -62,10 +66,10 @@ let Lose = 0;
 let Tie = 0;
 
 // Elements that to be click
-rock.addEventListener("click", () => updateResult("rock"));
-paper.addEventListener("click", () => updateResult("paper"));
-scissor.addEventListener("click", () => updateResult("scissor"));
-start.addEventListener('click',() => setTimeout(overlay.remove(), saudio.play(),3000))
+rock.addEventListener("click", () => updateResult("rock"), saudio.play());
+paper.addEventListener("click", () => updateResult("paper"), saudio.play());
+scissor.addEventListener("click", () => updateResult("scissor"), saudio.play());
+start.addEventListener('click',() => setTimeout(overlay.remove(), sound.style.cssText = "opacity:1", bgaudio.play(), saudio.play(),3000))
 
 
 function updateResult(choice) {
@@ -111,7 +115,7 @@ function replace() {
         if(Won>Lose>Tie || Won>Tie>Lose){overlaymsg.textContent = `Match ${"Won"}`; waudio.play();}
         else if(Lose>Tie>Won || Lose>Won>Tie){overlaymsg.textContent = `Match ${"Lose"}`; laudio.play();}
         else if(Tie>Won>Lose || Tie>Lose>Won){overlaymsg.textContent = `Match ${"Tie"}`; taudio.play();}
-        else{overlaymsg.textContent = "Match Tie"}
+        else{overlaymsg.textContent = "Match Tie"; taudio.play();}
         overlay = document.createElement('div')
         overbox = document.createElement('div')
 
@@ -128,13 +132,23 @@ function replace() {
             overlay.remove()
             start.remove()
             saudio.play('./assets/tie.mp3');
-            Won = 0;
-            Lose = 0;
-            Tie = 0;
+            Won = 0; Lose = 0; Tie = 0;
         })
     }else{
         count++;
     }
     result.innerHTML = `Round ${count}`
 }
-// let rand = Math.floor(Math.random() * 3);
+
+sound.addEventListener('click',()=>{
+    if (sound.src.includes('volume.png')) {
+        // sound.style.cssText = 'background-color:white; color:white'
+        sound.src = './assets/mute.png';
+        bgaudio.pause();
+    }else{
+        // sound.style.cssText = 'background-color:white; color:white'
+        sound.src = './assets/volume.png';
+        bgaudio.currentTime = 0;
+        bgaudio.play();
+    }
+})
