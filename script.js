@@ -66,10 +66,10 @@ let Lose = 0;
 let Tie = 0;
 
 // Elements that to be click
-rock.addEventListener("click", () => {saudio.play();updateResult("rock");});
-paper.addEventListener("click", () => {updateResult("paper"); saudio.play();});
-scissor.addEventListener("click", () => {updateResult("scissor"); saudio.play();});
-start.addEventListener('click',() => setTimeout(overlay.remove(), sound.style.cssText = "opacity:1", bgaudio.play(), 3000))
+rock.addEventListener("click", () => {saudio.currentTime = 0; saudio.play();updateResult("rock");});
+paper.addEventListener("click", () => {saudio.currentTime = 0; saudio.play(); updateResult("paper");});
+scissor.addEventListener("click", () => {saudio.currentTime = 0; saudio.play(); updateResult("scissor");});
+start.addEventListener('click',() => setTimeout(overlay.remove(), sound.style.cssText = "opacity:1", bgaudio.play(), 1000))
 
 
 function updateResult(choice) {
@@ -91,7 +91,7 @@ function updateResult(choice) {
     
     get(); // Update display
     
-    setTimeout(replace, 3000); // Replace logic
+    setTimeout(replace, 1000); // Replace logic
     console.log(Won);
     console.log(Lose);
     console.log(Tie);
@@ -147,6 +147,7 @@ sound.addEventListener('click',()=>{
     }else{
         // sound.style.cssText = 'background-color:white; color:white'
         sound.src = './assets/volume.png';
+        bgaudio.loop = true;
         bgaudio.currentTime = 0;
         bgaudio.play();
     }
