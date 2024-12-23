@@ -13,7 +13,7 @@
     <nav>
         <div id="logo">
             <img src="/assets/profile.png" alt="logo">
-            <div><h1>HAS@Gaming</h1></div>
+            <div><h1>@Gaming</h1></div>
         </div>
         <div>
             <ul><a href="#Home">Home</a></ul>
@@ -48,26 +48,38 @@
     <section id="Games">
     </section>
     <section id="Contect">
-        <form action="#" >
+        <form action="#"  id="form">
             <p>Enter Feedback Here</p>
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <input type="number" placeholder="Your Phone">
-            <input type="text" placeholder="Text Area" id="TextArea">
-            <button>Submit</button>
+            <input type="text" name="from_name" id="from_name" placeholder="Your Name">
+            <input type="email" type="text" name="email" id="email" placeholder="Your Phone">
+            <input type="number" name="phone" id="phone" placeholder="Your Phone">
+            <input type="text" name="message" id="message" placeholder="Text Area">
+            <input type="submit" id="button" value="Send Email">
         </form>
     </section>
-</body>
-<footer>
+    <footer>
+        <section>
+            <!-- &copy -->
+            &#169Copyright Harsh
+        </section>
+    </footer>
+        <!-- AOS (Animation on Scroll) Library -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init();
+        AOS.init();
     </script>
+
+    <!-- Your Custom Script -->
     <script src="script.js"></script>
-    <section>
-        <!-- &copy -->
-        &#169Copyright Harsh
-    </section>
-</footer>
+
+    <!-- EmailJS SDK -->
+        <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+    emailjs.init('axGZ4QYoXmOwRc-rr')
+    </script>
+    </script>
+</body>
 
 </html>
